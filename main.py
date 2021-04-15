@@ -3,7 +3,7 @@ from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/data', methods=['GET'])
+@app.route('/', methods=['GET'])
 def get_query_string():
     return check_pods(request.query_string)
 
@@ -17,8 +17,9 @@ def check_pods(req_ip):
               (i.status.pod_ip, i.metadata.namespace, i.metadata.name))
         if i.status.pod_ip == req_ip:
             print("pod name: {}".format(i.metadata.name))
-            return i.metadata.name
+            print("pod namespace: {}".format(i.metadata.namespace)))
+            return "name: {}, namespace: {}".foramt(i.metadata.name, i.meradata.namespace)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')

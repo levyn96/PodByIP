@@ -1,4 +1,7 @@
 FROM python:3-slim
-RUN pip install kubernetes
+RUN mkdir app
+WORKDIR app
+RUN pip install kubernetes && pip install flask 
 ADD main.py . 
-CMD [ "python", "./main.py" ]
+EXPOSE 80
+CMD [ "python", "/app/main.py" ]
