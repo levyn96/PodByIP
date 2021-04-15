@@ -3,6 +3,7 @@ kind: Pod
 metadata:
   name: kube-client
 spec:
+  restartPolicy: Never
   containers:
     - name: client-container
       image: docker.io/levyn96/pod-by-ip:latest
