@@ -7,8 +7,8 @@ spec:
     app: kube-client
   ports:
   - protocol: "TCP"
-    port: 8080
-    targetPort: 80
+    port: 5001
+    targetPort: 5000
   type: LoadBalancer
 
 ---
@@ -31,4 +31,4 @@ spec:
         image: docker.io/levyn96/pod-by-ip:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 80
+        - containerPort: 5000

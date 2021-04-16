@@ -3,5 +3,5 @@ RUN mkdir app
 WORKDIR app
 RUN pip install kubernetes && pip install flask 
 ADD main.py . 
-EXPOSE 80
+EXPOSE 5000
 CMD [ "python", "/app/main.py" ]
