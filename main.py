@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def get_query_string():
-    return check_pods(request.query_string)
+    return check_pods(request.query_string.decode()).encode()
 
 def check_pods(req_ip):
     config.load_incluster_config()
