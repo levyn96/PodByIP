@@ -19,7 +19,7 @@ def check_pods(req_ip):
             print("pod name: {}".format(i.metadata.name))
             print("pod namespace: {}".format(i.metadata.namespace))
             return "name: {}, namespace: {}".foramt(i.metadata.name, i.meradata.namespace)
-
+    return req_ip+" not found"
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
