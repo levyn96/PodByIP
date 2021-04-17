@@ -24,7 +24,7 @@ I used minikube, so first I had to tunnel the service so it can be accessed from
 minikube.exe service kube-client-service
 ```
 This also automatically opens a browser window with the proxy address and port.
-I prefer curl, And I just add a /?<IP-ADDRESS> to the URL:
+I prefer curl, And I just add a */?IP-ADDRESS* to the URL:
 ```
 $ curl http://127.0.0.1:65487/?192.168.49.2
 [
