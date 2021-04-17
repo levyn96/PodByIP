@@ -31,6 +31,10 @@ data.name, namespace: .metadata.namespace}'
 }
 
 ```
+It is also possible to pack it up in a bash script file like I did in **get_name.sh** for a better user experience:
+```sh
+./get_name.sh 192.168.49.2
+``` 
 I found a number of one line commands that solves the challenge, non of which are very readable or maintainable.
 It's good for a one time use, but it might not be as compelling for intensive use.
 
