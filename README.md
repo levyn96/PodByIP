@@ -3,13 +3,32 @@
 ## First solution, quick and dirty
 You can use a simple CLI command with **kubectl**, but you have to be connected to the cluster:
 ```
-host:/$ kubectl get --all-namespaces  --output json  pods | jq '.items[] | select(.status.podIP=="192.168.49.2")' | jq .metadata.name
-"etcd-minikube"
-"kube-apiserver-minikube"
-"kube-controller-manager-minikube"
-"kube-proxy-pzfr7"
-"kube-scheduler-minikube"
-"storage-provisioner"
+$ kubectl get --all-namespaces  --output json  pods | jq '.items[] | select(.status.podIP=="192.168.49.2")' | jq '{name: .meta
+data.name, namespace: .metadata.namespace}'
+{
+  "name": "etcd-minikube",
+  "namespace": "kube-system"
+}
+{
+  "name": "kube-apiserver-minikube",
+  "namespace": "kube-system"
+}
+{
+  "name": "kube-controller-manager-minikube",
+  "namespace": "kube-system"
+}
+{
+  "name": "kube-proxy-pzfr7",
+  "namespace": "kube-system"
+}
+{
+  "name": "kube-scheduler-minikube",
+  "namespace": "kube-system"
+}
+{
+  "name": "storage-provisioner",
+  "namespace": "kube-system"
+}
 
 ```
 It's good for a one time use, but it might not be as compelling for intensive use.
